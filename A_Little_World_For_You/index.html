@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffe4f0">
+  <title>A Little World For Cinna ♡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <main id="app">
+    <section id="intro" class="screen active">
+      <div class="sparkle s1">✦</div><div class="sparkle s2">♡</div><div class="sparkle s3">✧</div>
+      <div class="intro-card glass">
+        <div class="pixel-flower">✿</div>
+        <p class="eyebrow">A TINY WORLD, MADE WITH LOVE</p>
+        <h1>A Little World<br><span>Made Just for You</span></h1>
+        <p class="lead">Before your adventure begins, I have one little question...</p>
+        <div class="question-box">
+          <h2>Do You Love Me? <span>♡</span></h2>
+          <div class="answer-row">
+            <button id="yesBtn" class="btn btn-primary">Yes ❤️</button>
+            <button id="noBtn" class="btn btn-soft">No 🙈</button>
+          </div>
+          <p id="tease" class="tease" aria-live="polite">Choose your answer honestly ✨</p>
+        </div>
+        <p class="tiny-note">Tap “Yes” to begin our story</p>
+      </div>
+    </section>
+
+    <section id="birthday" class="screen">
+      <div class="section-card glass">
+        <p class="eyebrow">TWO SPECIAL DAYS</p>
+        <h2>Two Special Dates in Our Story</h2>
+        <p class="lead">Two different days, and each one is special to me.</p>
+        <div class="birthday-grid">
+          <article class="birthday-card">
+            <div class="cake">🎂</div><span>My Birthday</span>
+            <strong>26 / 11 / 2004</strong>
+            <small>MY DAY</small>
+          </article>
+          <div class="heart-divider">♡</div>
+          <article class="birthday-card her">
+            <div class="cake">🎂</div><span>Cinna’s Birthday</span>
+            <strong>30 / 01 / 2005</strong>
+            <small>YOUR DAY</small>
+          </article>
+        </div>
+        <p class="birthday-line">Two special days became the beginning of a story worth telling 🌷</p>
+        <button id="startGameBtn" class="btn btn-primary wide">Start the Adventure <span>←</span></button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen">
+      <header class="hud glass">
+        <div><span class="hud-label">Level</span><strong id="levelLabel">1 / 3</strong></div>
+        <div class="mission"><span class="hud-label">Your Mission</span><strong id="missionLabel">Collect the hearts</strong></div>
+        <div><span class="hud-label">Collected</span><strong id="scoreLabel">0 / 10</strong></div>
+      </header>
+      <div class="game-wrap">
+        <canvas id="game" width="960" height="540" aria-label="Platform game"></canvas>
+        <div id="levelToast" class="level-toast">Collect lovely items to unlock the surprise!</div>
+        <div class="mobile-controls" aria-label="Game controls">
+          <button data-control="left" aria-label="Left">◀</button>
+          <button data-control="right" aria-label="Right">▶</button>
+          <button data-control="jump" class="jump" aria-label="Jump">Jump</button>
+        </div>
+      </div>
+      <p class="controls-hint">Controls: Arrow keys or A / D to move, Space to jump. On mobile, use the on-screen buttons.</p>
+    </section>
+
+    <section id="stageComplete" class="screen">
+      <div class="section-card glass">
+        <div class="big-icon" id="stageIcon">🌸</div>
+        <p class="eyebrow">WONDERFUL!</p>
+        <h2 id="stageTitle">Well done!</h2>
+        <p id="stageText" class="lead"></p>
+        <button id="nextStageBtn" class="btn btn-primary wide">Continue the Journey</button>
+      </div>
+    </section>
+
+    <section id="finale" class="screen">
+      <div class="final-card glass">
+        <p class="eyebrow">YOU FOUND THE LITTLE SURPRISE</p>
+        <h1>Just for You <span>♡</span></h1>
+        <p class="lead">You made it to the end… and I have one last surprise for you.</p>
+        <button id="openGiftBtn" class="gift-button" aria-label="Open the gift box">
+          <span class="gift-glow"></span><span class="gift-bow">✧</span>
+          <span class="gift-lid"></span><span class="gift-box"><i></i></span>
+          <small>Tap to open your gift</small>
+        </button>
+        <div id="loveLetter" class="letter hidden">
+          <div class="bouquet" aria-label="Flower bouquet">🌷 🌸 🌼<br>💐 🤍 🌺</div>
+          <img class="gift-photo" src="pic.jpg" alt="A special picture for Cinna">
+          <h2>To Cinna, the Girl This Little World Is For</h2>
+          <p>I cannot give you the whole world, so I made a little world just for you. I filled every detail with things I hope will make you smile.</p>
+          <p>I chose the flowers you love and built this little adventure with my own hands, because you deserve something as lovely and thoughtful as you are.</p>
+          <p class="signature">With all my love, from someone who wanted to make something special just for you. ❤️</p>
+          <button id="replayBtn" class="btn btn-soft">Play Again ↻</button>
+        </div>
+      </div>
+      <div class="petals" aria-hidden="true">✿　✧　♡　✿　✧</div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

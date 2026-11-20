@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap');
+:root{--pink:#ef8db8;--deep:#b94f83;--ink:#60344b;--cream:#fff8fb;--soft:#ffe6f0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Cairo",sans-serif;background:linear-gradient(135deg,#fff5fa 0%,#fce2ef 48%,#f4e7ff 100%);overflow-x:hidden}
+.ambient{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:34px 34px;opacity:.45}
+#app{min-height:100vh;position:relative;display:grid;place-items:center;padding:24px}
+.screen{display:none;width:min(100%,1000px);min-height:80vh;align-items:center;justify-content:center;position:relative}
+.screen.active{display:flex;animation:fadeIn .65s ease both}
+.glass{background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 70px rgba(170,91,132,.16);backdrop-filter:blur(14px);border-radius:30px}
+.intro-card,.section-card,.final-card{width:min(100%,700px);padding:clamp(26px,5vw,54px);text-align:center;position:relative;overflow:hidden}
+.pixel-flower{font-size:46px;color:#e889b4;text-shadow:3px 3px #ffd7e8;margin-bottom:4px}
+.eyebrow{letter-spacing:3px;font-size:11px;font-weight:800;color:#c46d96;margin:4px 0 12px;direction:ltr}
+h1,h2,p{margin-top:0}
+h1{font-size:clamp(34px,7vw,62px);line-height:1.35;margin-bottom:12px;color:#a94777}
+h1 span{color:#e58ab3}
+h2{font-size:clamp(23px,4vw,34px);margin-bottom:12px;color:#a94f7c}
+.lead{font-size:clamp(14px,2.4vw,18px);line-height:2;color:#80566c}
+.question-box{background:#fff0f6;border:1px dashed #efb2cd;border-radius:24px;padding:20px;margin:22px auto 10px;max-width:440px}
+.question-box h2{font-size:30px;margin:0 0 16px}
+.question-box h2 span{color:#e67ca9}
+.answer-row{display:flex;justify-content:center;gap:14px;min-height:52px}
+.btn{border:0;border-radius:16px;padding:13px 28px;font:700 16px "Cairo",sans-serif;cursor:pointer;transition:transform .2s,box-shadow .2s;touch-action:manipulation}
+.btn:hover{transform:translateY(-3px);box-shadow:0 9px 20px #d88bad55}
+.btn-primary{color:white;background:linear-gradient(135deg,#ef91b9,#d7659a);box-shadow:0 8px 18px #d978a544}
+.btn-soft{color:#a34e78;background:#ffe0ed;border:1px solid #f5bfd5}
+.wide{min-width:220px;margin-top:18px}
+.tease{font-size:13px;color:#b66a8d;margin:14px 0 0;min-height:24px}
+.tiny-note{font-size:11px;color:#b98ba1;margin:12px 0 0}
+.sparkle{position:absolute;color:#e88eb6;font-size:30px;animation:float 4s ease-in-out infinite}
+.s1{top:10%;left:12%}.s2{top:20%;right:9%;animation-delay:1s}.s3{bottom:12%;left:18%;animation-delay:2s}
+.birthday-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:28px 0 20px}
+.birthday-card{background:linear-gradient(160deg,#fff,#fff0f6);border:1px solid #f6d4e3;border-radius:22px;padding:22px 12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 12px 28px #ce8eaa22}
+.birthday-card.her{background:linear-gradient(160deg,#fff,#f5edff)}
+.birthday-card span{font-size:13px;color:#98617b}.birthday-card strong{font-size:clamp(16px,3vw,22px);color:#b94f83;direction:ltr}
+.birthday-card small{font-size:10px;letter-spacing:2px;color:#c58aa5;direction:ltr}.cake{font-size:34px}
+.heart-divider{font-size:28px;color:#e17ba8}.birthday-line{color:#a45d7d}
+.game-screen{width:min(100%,1100px);display:none;flex-direction:column;gap:14px}
+.game-screen.active{display:flex}
+.hud{width:100%;display:flex;justify-content:space-between;align-items:center;padding:12px 22px;gap:10px}
+.hud>div{display:flex;flex-direction:column;min-width:75px}.hud-label{font-size:11px;color:#ad7891}.hud strong{font-size:16px;color:#9e4772}
+.hud .mission{text-align:center;flex:1}
+.game-wrap{width:100%;position:relative;border:8px solid rgba(255,255,255,.8);border-radius:24px;overflow:hidden;box-shadow:0 22px 50px #9c608833;background:#f9cfe1}
+canvas{display:block;width:100%;height:auto;image-rendering:pixelated;touch-action:none}
+.level-toast{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:#fff9;border:1px solid white;border-radius:30px;padding:8px 18px;font-size:13px;color:#914b70;white-space:nowrap;max-width:90%;text-align:center}
+.controls-hint{font-size:12px;color:#9c7186;text-align:center;margin:0}
+.mobile-controls{display:none;position:absolute;bottom:12px;left:12px;right:12px;justify-content:space-between;pointer-events:none}
+.mobile-controls button{pointer-events:auto;border:2px solid #fff;background:#fff9;color:#a84e7a;border-radius:16px;min-width:52px;height:48px;font-weight:800;font-size:18px;box-shadow:0 4px 12px #8c4d6b33;touch-action:none}
+.mobile-controls .jump{min-width:76px;background:#e984b1;color:white}
+.big-icon{font-size:70px;margin-bottom:12px;animation:float 3s ease-in-out infinite}
+.final-card{max-width:760px}
+.gift-button{position:relative;width:180px;height:180px;border:0;background:transparent;cursor:pointer;margin:15px auto 10px;display:block;filter:drop-shadow(0 12px 12px #ad5d8433)}
+.gift-box{position:absolute;left:30px;bottom:30px;width:120px;height:86px;background:#e979a8;border:5px solid #fff0f6;border-radius:8px;box-shadow:inset -12px 0 #cf5e91}
+.gift-box:before{content:"";position:absolute;left:46px;top:0;width:18px;height:100%;background:#ffe5a9}
+.gift-lid{position:absolute;left:22px;bottom:108px;width:136px;height:28px;background:#f39bc0;border:5px solid #fff0f6;border-radius:8px;transform-origin:left bottom;transition:transform .8s cubic-bezier(.2,.8,.2,1);z-index:2}
+.gift-bow{position:absolute;top:10px;left:72px;font-size:45px;color:#ffe8a9;z-index:3}
+.gift-glow{position:absolute;inset:5px;border-radius:50%;background:#ffd4e766;filter:blur(18px);animation:pulse 2s infinite}
+.gift-button.opened .gift-lid{transform:translate(-20px,-35px) rotate(-28deg)}
+.gift-button small{position:absolute;bottom:0;left:0;right:0;color:#a45b7c;font:600 12px "Cairo"}
+.letter{margin:18px auto 0;padding:24px;background:#fff3f8;border:1px solid #f3c5d9;border-radius:22px;max-width:570px;animation:fadeIn .8s ease both}
+.letter h2{font-size:23px}.letter p{line-height:2;color:#80566c;font-size:15px}
+.bouquet{font-size:38px;line-height:1.6;margin:4px auto 15px;direction:ltr}
+.signature{font-weight:700;color:#b34f7c!important}.hidden{display:none}
+.petals{font-size:24px;color:#e38ab3;margin-top:18px;letter-spacing:10px;animation:float 5s infinite}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.08)}}
+@media(max-width:650px){#app{padding:12px}.screen{min-height:88vh}.intro-card,.section-card,.final-card{padding:26px 18px;border-radius:24px}.birthday-grid{gap:5px}.birthday-card{padding:16px 6px}.hud{padding:9px 12px}.hud strong{font-size:13px}.hud-label{font-size:9px}.mobile-controls{display:flex}.controls-hint{font-size:10px}.level-toast{font-size:10px;padding:6px 10px}.question-box{padding:16px}.answer-row{gap:8px}.btn{padding:12px 20px;font-size:14px}}
+
+/* Cinna's photo is revealed when the gift opens */
+.gift-photo{display:block;width:min(100%,390px);max-height:420px;object-fit:contain;margin:18px auto 22px;border:8px solid #fff;border-radius:18px;box-shadow:0 14px 34px #a85e8033;background:#fff0f6}
